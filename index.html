@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivor Fergusson — Civil Engineering Portfolio</title>
+  <style>
+    :root {
+      --ink: #1b2430;
+      --muted: #5b6b7c;
+      --line: #dde3ea;
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --accent: #1f6f5c;
+      --accent-dark: #175646;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: var(--accent-dark);
+      color: #fff;
+      padding: 32px clamp(16px, 4vw, 48px);
+    }
+    header h1 { margin: 0 0 6px; font-size: 1.6rem; }
+    header p { margin: 0; color: #cfe4dd; }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 28px clamp(16px, 4vw, 48px) 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px clamp(14px, 3vw, 28px);
+    }
+    .project-card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+    .project-card p { margin: 0 0 12px; color: var(--muted); line-height: 1.5; }
+    .link-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .project-card a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .project-card a.demo-link { background: var(--accent); color: #fff; }
+    .project-card a.demo-link:hover { background: var(--accent-dark); }
+    .project-card a.code-link { background: #e4e9ee; color: var(--ink); }
+    .project-card a.code-link:hover { background: #d5dde4; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ivor Fergusson</h1>
+    <p>Civil engineering / quantity surveying project portfolio</p>
+  </header>
+
+  <main>
+    <section class="project-card">
+      <h2>Quantity Take-off &amp; Cost Estimator</h2>
+      <p>Measures a drawing, abstracts the measurements into a priced Bill of Quantities, applies
+      preliminaries/overheads/contingency, and exports a working Excel tender pack with live formulas —
+      mirroring the estimating workflow used at Lambert.</p>
+      <div class="link-row">
+        <a class="demo-link" href="https://ivorfergusson-tech.github.io/qto-cost-estimator/">Open demo</a>
+        <a class="code-link" href="https://github.com/ivorfergusson-tech/qto-cost-estimator">View source</a>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <h2>Site Diary &amp; Defect Log</h2>
+      <p>Digital site diary and defect-tracking tool that auto-generates formatted daily reports and a
+      defect register, with PDF export.</p>
+      <div class="link-row">
+        <a class="demo-link" href="https://ivorfergusson-tech.github.io/site-diary-defect-log/">Open demo</a>
+        <a class="code-link" href="https://github.com/ivorfergusson-tech/site-diary-defect-log">View source</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
