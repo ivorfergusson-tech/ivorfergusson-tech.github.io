@@ -1,90 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivor Fergusson — Civil Engineering Portfolio</title>
-  <style>
-    :root {
-      --ink: #1b2430;
-      --muted: #5b6b7c;
-      --line: #dde3ea;
-      --bg: #f4f6f8;
-      --card: #ffffff;
-      --accent: #1f6f5c;
-      --accent-dark: #175646;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    header {
-      background: var(--accent-dark);
-      color: #fff;
-      padding: 32px clamp(16px, 4vw, 48px);
-    }
-    header h1 { margin: 0 0 6px; font-size: 1.6rem; }
-    header p { margin: 0; color: #cfe4dd; }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 28px clamp(16px, 4vw, 48px) 64px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 20px clamp(14px, 3vw, 28px);
-    }
-    .project-card h2 { margin: 0 0 6px; font-size: 1.15rem; }
-    .project-card p { margin: 0 0 12px; color: var(--muted); line-height: 1.5; }
-    .link-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .project-card a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
-    .project-card a.demo-link { background: var(--accent); color: #fff; }
-    .project-card a.demo-link:hover { background: var(--accent-dark); }
-    .project-card a.code-link { background: #e4e9ee; color: var(--ink); }
-    .project-card a.code-link:hover { background: #d5dde4; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivor Fergusson | Aspiring Civil Engineer</title>
+<meta name="description" content="Ivor Fergusson: Year 13 student applying for Civil Engineering degree apprenticeships (2027 entry). Profile, education, site experience, mentorship and construction projects.">
+<meta property="og:title" content="Ivor Fergusson | Aspiring Civil Engineer">
+<meta property="og:description" content="Civil Engineering degree apprenticeship portfolio: site experience, Kier mentorship and self-built construction tools.">
+<meta property="og:image" content="https://ivorfergusson-tech.github.io/assets/ivor-profile.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C2B33;
+    --navy-2: #2E4049;
+    --teal: #28707A;
+    --teal-soft: #E3EEEF;
+    --slate: #57666D;
+    --slate-2: #516269;
+    --sage: #8C9A94;
+    --offwhite: #F6F5F1;
+    --line: #DDE1DC;
+    --line-2: #CFD6D2;
+    --white: #FFFFFF;
+    --head: "Bahnschrift", "Barlow Semi Condensed", "DIN Alternate", "Arial Narrow", sans-serif;
+    --body: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --radius: 10px;
+    --max: 1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--navy);
+    background: var(--offwhite);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--head); margin: 0; line-height: 1.15; }
+  p { margin: 0 0 12px; }
+  a { color: var(--teal); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
+  code { font-family: Consolas, "Cascadia Mono", Menlo, monospace; font-size: .85em; background: var(--line); padding: 1px 5px; border-radius: 4px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--navy); color: var(--white); padding: 64px 0 56px; }
+  .hero .wrap { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  .hero img {
+    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--teal); display: block;
+  }
+  .eyebrow {
+    font-family: var(--head); text-transform: uppercase; letter-spacing: .18em;
+    font-size: .8rem; color: var(--sage); margin-bottom: 8px;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: .04em; font-weight: 600; }
+  .hero h1 span { color: #7FB3BA; font-weight: 400; }
+  .hero .role {
+    font-family: var(--head); text-transform: uppercase; letter-spacing: .14em;
+    font-size: 1.05rem; margin: 10px 0 4px; color: var(--white);
+  }
+  .hero .target { color: var(--line-2); margin-bottom: 22px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 6px; font-size: .92rem; font-weight: 600;
+    text-decoration: none; border: 1px solid transparent; transition: background .15s, border-color .15s;
+  }
+  .btn-light { background: var(--navy-2); color: var(--white); border-color: #3E525C; }
+  .btn-light:hover { background: #3A4F59; }
+  .btn-teal { background: var(--teal); color: var(--white); }
+  .btn-teal:hover { background: #1F5A62; }
+  .btn-ghost { background: var(--white); color: var(--navy); border-color: var(--line-2); }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .btn svg { width: 16px; height: 16px; flex: none; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(246,245,241,.96); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  nav .wrap::-webkit-scrollbar { display: none; }
+  nav a {
+    flex: none; padding: 16px 12px 14px; text-decoration: none; color: var(--slate);
+    font-family: var(--head); text-transform: uppercase; letter-spacing: .1em; font-size: .82rem;
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover { color: var(--navy); }
+  nav a.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem); text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+  }
+  .section-head h2::after {
+    content: ""; display: block; width: 56px; height: 4px; background: var(--teal); margin-top: 12px; border-radius: 2px;
+  }
+  .section-head p { color: var(--slate); margin-top: 14px; max-width: 64ch; }
+  .label {
+    font-family: var(--head); text-transform: uppercase; letter-spacing: .14em;
+    font-size: .78rem; color: var(--teal); font-weight: 600;
+  }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  section.alt .card { background: var(--offwhite); }
+
+  /* Profile */
+  .profile-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; align-items: start; }
+  .profile-lead { font-size: 1.15rem; color: var(--navy); border-left: 4px solid var(--teal); padding: 4px 0 4px 20px; }
+  .why p { color: var(--navy-2); }
+  .why h3 { font-size: 1.3rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .skills-label { display: block; margin-top: 40px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .pill {
+    font-size: .88rem; padding: 6px 14px; border-radius: 999px;
+    background: var(--teal-soft); color: #1F5A62; border: 1px solid #C6DCDF; font-weight: 600;
+  }
+
+  /* Education */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; }
+  .edu-grid h3 { font-size: 1.25rem; margin: 6px 0 16px; font-weight: 600; }
+  .alevels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .grade {
+    text-align: center; border-radius: 8px; padding: 16px 8px; background: var(--navy); color: var(--white);
+  }
+  .grade b { display: block; font-family: var(--head); font-size: 2.4rem; line-height: 1; color: #9CC7CC; font-weight: 600; }
+  .grade span { font-size: .85rem; color: var(--line-2); }
+  .gcses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .gcse {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    padding: 10px 14px; border-radius: 6px; background: var(--white); border: 1px solid var(--line); font-size: .92rem;
+  }
+  .gcse b { font-family: var(--head); font-size: 1.2rem; color: var(--teal); }
+
+  /* Experience timeline */
+  .timeline { position: relative; display: grid; gap: 20px; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line-2); }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -28px; top: 26px; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--offwhite); border: 3px solid var(--teal);
+  }
+  .tl-item .card { display: grid; gap: 6px; }
+  .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+  .tl-head h3 { font-size: 1.25rem; font-weight: 600; }
+  .date { font-family: var(--head); font-size: .9rem; letter-spacing: .06em; color: var(--slate); white-space: nowrap; }
+  .org { color: var(--teal); font-weight: 600; }
+  .tl-item ul { margin: 6px 0 0; padding-left: 20px; color: var(--navy-2); }
+  .tl-item li { margin-bottom: 4px; }
+  .mentor .card { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .mentor .card p { color: var(--line-2); margin: 0; }
+  .mentor .date, .mentor .label, .mentor .org { color: #9CC7CC; }
+  .mentor::before { background: var(--teal); }
+
+  /* Projects */
+  .projects { display: grid; gap: 40px; }
+  .project { background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .project-top { padding: 28px 28px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 12px; }
+  .project-num { font-family: var(--head); font-size: .85rem; letter-spacing: .16em; color: var(--sage); text-transform: uppercase; }
+  .project h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 600; }
+  .tagline { color: var(--slate); font-size: 1.05rem; margin: 0; max-width: 70ch; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: .78rem; padding: 3px 10px; border-radius: 4px; background: var(--offwhite); border: 1px solid var(--line); color: var(--slate-2); }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .project-body { padding: 24px 28px 28px; display: grid; gap: 28px; }
+  .star { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .star-block { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; background: var(--offwhite); }
+  .star-block header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .star-letter {
+    width: 32px; height: 32px; border-radius: 6px; background: var(--teal); color: var(--white);
+    display: grid; place-items: center; font-family: var(--head); font-weight: 700; font-size: 1.1rem; flex: none;
+  }
+  .star-block h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+  .star-block p { margin: 0; color: var(--navy-2); font-size: .95rem; }
+  .star-block p + p { margin-top: 8px; }
+
+  .how h4 { font-size: 1.15rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; font-weight: 600; }
+  .how > p { color: var(--slate); margin-bottom: 18px; }
+  .pipeline { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 10px 0; align-items: stretch; }
+  .pipeline li { display: flex; align-items: center; }
+  .pipeline li:not(:last-child)::after {
+    content: ""; width: 22px; height: 2px; background: var(--teal); margin: 0 4px;
+  }
+  .step {
+    background: var(--navy); color: var(--white); border-radius: 8px; padding: 10px 14px; min-width: 110px;
+    display: grid; gap: 2px;
+  }
+  .step small { font-family: var(--head); font-size: .72rem; letter-spacing: .12em; color: #9CC7CC; text-transform: uppercase; }
+  .step span { font-weight: 600; font-size: .92rem; line-height: 1.25; }
+  .step-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; margin: 0; }
+  .step-detail div { border-left: 3px solid var(--line-2); padding-left: 14px; }
+  .step-detail dt { font-weight: 700; font-size: .95rem; }
+  .step-detail dd { margin: 2px 0 0; color: var(--navy-2); font-size: .93rem; }
+  .formula {
+    font-family: Consolas, "Cascadia Mono", Menlo, monospace; font-size: .85rem;
+    background: var(--teal-soft); color: #174A51; padding: 1px 6px; border-radius: 4px;
+  }
+  .limits { background: #FBF8EE; border: 1px solid #ECE3C6; border-radius: var(--radius); padding: 16px 20px; font-size: .93rem; color: var(--navy-2); }
+  .limits strong { font-family: var(--head); text-transform: uppercase; letter-spacing: .1em; font-size: .82rem; color: #7A6526; display: block; margin-bottom: 4px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+  .stat { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; }
+  .stat b { font-family: var(--head); font-size: 1.4rem; color: var(--teal); display: block; line-height: 1.1; }
+  .stat span { font-size: .8rem; color: var(--slate); }
+
+  /* Beyond */
+  .judo-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 8px 0 24px; }
+  .judo-stat { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 20px 16px; }
+  .judo-stat b { font-family: var(--head); font-size: 1.7rem; display: block; line-height: 1.05; text-transform: uppercase; color: #9CC7CC; font-weight: 600; }
+  .judo-stat span { font-size: .88rem; color: var(--line-2); }
+  .beyond-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
+  .beyond-grid h3 { font-size: 1.4rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; margin-bottom: 4px; }
+  .sub { color: var(--slate); margin-bottom: 14px; }
+  .dofe { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .dofe .card { padding: 16px 18px; }
+  .dofe h4 { font-size: 1.05rem; margin: 4px 0; font-weight: 600; }
+  .dofe p { font-size: .9rem; color: var(--navy-2); margin: 0; }
+  .badge { display: inline-block; font-size: .72rem; font-family: var(--head); letter-spacing: .12em; text-transform: uppercase; background: var(--teal); color: var(--white); padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+
+  footer { background: var(--navy); color: var(--line-2); padding: 40px 0; font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+  footer b { font-family: var(--head); color: var(--white); letter-spacing: .1em; text-transform: uppercase; font-size: 1.05rem; }
+  footer a { color: #9CC7CC; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .profile-grid, .edu-grid, .beyond-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .wrap { padding: 0 16px; }
+    section { padding: 52px 0; }
+    .hero { padding: 44px 0 40px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 22px; }
+    .hero img { width: 120px; height: 120px; }
+    .star, .step-detail, .dofe { grid-template-columns: 1fr; }
+    .gcses { grid-template-columns: repeat(2, 1fr); }
+    .project-top, .project-body { padding-left: 18px; padding-right: 18px; }
+    .pipeline { flex-direction: column; align-items: stretch; gap: 0; }
+    .pipeline li { flex-direction: column; align-items: stretch; }
+    .pipeline li:not(:last-child)::after { width: 2px; height: 14px; margin: 3px 0 3px 24px; }
+    .step { min-width: 0; }
+    .card { padding: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Ivor Fergusson</h1>
-    <p>Civil engineering / quantity surveying project portfolio</p>
-  </header>
 
-  <main>
-    <section class="project-card">
-      <h2>Quantity Take-off &amp; Cost Estimator</h2>
-      <p>Measures a drawing, abstracts the measurements into a priced Bill of Quantities, applies
-      preliminaries/overheads/contingency, and exports a working Excel tender pack with live formulas —
-      mirroring the estimating workflow used at Lambert.</p>
-      <div class="link-row">
-        <a class="demo-link" href="https://ivorfergusson-tech.github.io/qto-cost-estimator/">Open demo</a>
-        <a class="code-link" href="https://github.com/ivorfergusson-tech/qto-cost-estimator">View source</a>
+<!-- ======================= HERO ======================= -->
+<header class="hero">
+  <div class="wrap">
+    <img src="assets/ivor-profile.jpg" alt="Portrait of Ivor Fergusson" width="180" height="180">
+    <div>
+      <div class="eyebrow">Civil Engineering Degree Apprenticeship · 2027 entry</div>
+      <h1>IVOR <span>FERGUSSON</span></h1>
+      <p class="role">Aspiring Civil Engineer</p>
+      <p class="target">Year 13 · Mathematics, Physics &amp; Economics</p>
+      <div class="contact">
+        <a class="btn btn-teal" href="mailto:IvorFergusson@Gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          IvorFergusson@Gmail.com</a>
+        <a class="btn btn-light" href="tel:+447485283852">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          07485 283852</a>
+        <a class="btn btn-light" href="https://www.linkedin.com/in/ivor-f-24026a39a" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+          LinkedIn</a>
       </div>
-    </section>
+    </div>
+  </div>
+</header>
 
-    <section class="project-card">
-      <h2>Site Diary &amp; Defect Log</h2>
-      <p>Digital site diary and defect-tracking tool that auto-generates formatted daily reports and a
-      defect register, with PDF export.</p>
-      <div class="link-row">
-        <a class="demo-link" href="https://ivorfergusson-tech.github.io/site-diary-defect-log/">Open demo</a>
-        <a class="code-link" href="https://github.com/ivorfergusson-tech/site-diary-defect-log">View source</a>
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a href="#profile">Profile</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience &amp; Mentorship</a>
+    <a href="#projects">Projects</a>
+    <a href="#beyond">Beyond the Classroom</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================= PROFILE ======================= -->
+<section id="profile">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Personal Profile</h2>
+    </div>
+    <div class="profile-grid">
+      <div>
+        <p class="profile-lead">Motivated Year 13 student studying Mathematics, Physics and Economics (predicted AAB), with a strong interest in construction. Looking to combine sharp problem-solving skills with hands-on site experience in pursuit of a Civil Engineering degree apprenticeship.</p>
       </div>
-    </section>
-  </main>
+      <div class="why">
+        <h3>Why I picked construction</h3>
+        <p>I love building things: the detail behind how a structure comes together, and how a whole network of contractors, engineers and tradespeople work together to deliver one finished product.</p>
+        <p>I first saw that for real working as a bricklayer's labourer during school breaks. I kept the bricklayers supplied with bricks, blocks and mortar and coordinated deliveries with the forklift drivers. Watching walls go up course by course showed me how much every trade depends on the planning done behind the scenes.</p>
+        <p>My internship at Lambert Construction showed me that other side: quantity take-offs, cost estimates and procurement decisions that shape a project long before work starts on site. My mentorship with a Bid Lead at Kier is now showing me how projects are won in the first place.</p>
+        <p>Maths and Physics give me the tools to understand why structures stand up, and construction is where I want to use them. There is something deeply satisfying about a process that ends in something tangible: a real structure you can point to, and the sense of achievement that comes with seeing a project through from start to finish. A degree apprenticeship lets me learn on site and in the classroom at the same time, which is exactly how I learn best.</p>
+      </div>
+    </div>
+
+    <span class="label skills-label">Key skills</span>
+    <div class="skills">
+      <span class="pill">Communication &amp; Teamwork</span>
+      <span class="pill">Technical Literacy</span>
+      <span class="pill">Time Management</span>
+      <span class="pill">Site Awareness</span>
+      <span class="pill">Determination</span>
+      <span class="pill">Critical Thinking</span>
+      <span class="pill">Microsoft Excel (fundamentals)</span>
+      <span class="pill">AI-Assisted Workflows (Claude Code)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EDUCATION ======================= -->
+<section id="education" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="card">
+        <span class="label">A-Level · Predicted · August 2027</span>
+        <h3>Predicted AAB</h3>
+        <div class="alevels">
+          <div class="grade"><b>A</b><span>Physics</span></div>
+          <div class="grade"><b>B</b><span>Mathematics</span></div>
+          <div class="grade"><b>A</b><span>Economics</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label">GCSE Highlights · August 2025</span>
+        <h3>Nine GCSEs, grades 9–1</h3>
+        <div class="gcses">
+          <div class="gcse">Physics <b>8</b></div>
+          <div class="gcse">Biology <b>8</b></div>
+          <div class="gcse">Chemistry <b>7</b></div>
+          <div class="gcse">Mathematics <b>7</b></div>
+          <div class="gcse">Geography <b>7</b></div>
+          <div class="gcse">Eng. Literature <b>7</b></div>
+          <div class="gcse">Eng. Language <b>6</b></div>
+          <div class="gcse">PE <b>6</b></div>
+          <div class="gcse">Spanish <b>5</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EXPERIENCE ======================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience &amp; Mentorship</h2>
+      <p>Site, trade and volunteering roles building toward civil engineering.</p>
+    </div>
+    <div class="timeline">
+
+      <article class="tl-item mentor">
+        <div class="card">
+          <span class="label">Mentorship</span>
+          <div class="tl-head">
+            <h3>Mentee: Rob Preston, Bid Lead</h3>
+            <span class="date">Aug 2026 – Present</span>
+          </div>
+          <span class="org">Kier Group</span>
+          <p>Undertaking professional mentorship with a Bid Lead at Kier Group, gaining insight into the construction and infrastructure sector and the commercial bidding process.</p>
+          <p>Actively applying professional guidance to strengthen communication, industry knowledge and career development, while building a valuable network within the sector.</p>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="card">
+          <div class="tl-head">
+            <h3>Warehouse Operator</h3>
+            <span class="date">Aug – Sep 2026</span>
+          </div>
+          <span class="org">Evri</span>
+          <ul>
+            <li>Worked the 1am–10am night shift in a busy parcel distribution depot</li>
+            <li>Collaborated under strict deadlines in a fast-paced logistics environment</li>
+            <li>Demonstrated reliability and safe working practice loading and unloading vehicles</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="card">
+          <div class="tl-head">
+            <h3>Estimating &amp; Site Support Intern</h3>
+            <span class="date">Jul – Aug 2026</span>
+          </div>
+          <span class="org">Lambert Construction &amp; Civil Engineering</span>
+          <ul>
+            <li>Supported the estimating team with quantity take-offs, analysis of project drawings and cost-estimate reviews for upcoming tenders</li>
+            <li>Gained insight into procurement and material sourcing on live projects</li>
+            <li>Shadowed the construction manager on UK site visits, observing quality checks and contract management</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="card">
+          <div class="tl-head">
+            <h3>Bricklayer Labourer (Part-time)</h3>
+            <span class="date">Sep 2025 – Jul 2026</span>
+          </div>
+          <span class="org">Site work during school breaks</span>
+          <ul>
+            <li>Transported bricks, blocks and mortar to keep bricklayers supplied on site</li>
+            <li>Liaised with forklift drivers to coordinate delivery of pallets of bricks and mortar bins</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="card">
+          <span class="label">Volunteering</span>
+          <div class="tl-head">
+            <h3>Committee Chairman</h3>
+            <span class="date">Jul 2025 – Present</span>
+          </div>
+          <span class="org">Sheffield Judo Club</span>
+          <ul>
+            <li>Leads committee meetings and coordinates club activities</li>
+            <li>Developed leadership, organisation and communication skills</li>
+            <li>Demonstrates sustained commitment outside academic study</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJECTS ======================= -->
+<section id="projects" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Construction Projects</h2>
+      <p>Self-directed tools I built with Claude Code, each based on a real process I saw or learned about in industry. Every project is written up using STAR (Situation, Task, Action, Result), followed by a plain-English breakdown of what the tool does and how it works.</p>
+    </div>
+
+    <div class="projects">
+
+      <!-- ---------- Project 1: Embodied Carbon ---------- -->
+      <article class="project" id="carbon">
+        <div class="project-top">
+          <span class="project-num">Project 01</span>
+          <h3>Embodied Carbon Calculator</h3>
+          <p class="tagline">An Excel model that estimates how much carbon a building's materials release before the building is even used, and shows how material choices change that figure.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">Excel (live formulas)</span><span class="tag">ICE Database v4.1</span><span class="tag">BS EN 15978</span></div>
+          <div class="links">
+            <a class="btn btn-teal" href="downloads/Embodied-Carbon-Calculator.xlsx" download>Download the workbook (.xlsx)</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="star">
+            <div class="star-block"><header><span class="star-letter">S</span><h4>Situation</h4></header>
+              <p>UK construction companies must comply with carbon reporting, reduction and net-zero requirements, including SECR reporting, Scope 1–3 emissions accounting and building regulations that target low-carbon construction. Firms increasingly need to estimate how much carbon a project will release at design stage.</p></div>
+            <div class="star-block"><header><span class="star-letter">T</span><h4>Task</h4></header>
+              <p>Build a transparent, reusable tool that estimates a project's embodied carbon, where every result can be traced back to a quantity, a density, a waste allowance and a cited carbon factor, rather than being an unexplained number.</p></div>
+            <div class="star-block"><header><span class="star-letter">A</span><h4>Action</h4></header>
+              <p>Wrote a Python script (openpyxl) that generates an Excel workbook with five tabs: Read Me, Methodology, Carbon Factors, Calculator and Summary. Every result cell is a <em>live Excel formula</em> (VLOOKUPs into the factor table), not a pasted value, so anyone can click a cell and see how it was calculated.</p>
+              <p>Material factors come from the industry-standard ICE Database. Dropdowns prevent typos, and 15 blank formula rows let the workbook be reused for a new project without touching code.</p></div>
+            <div class="star-block"><header><span class="star-letter">R</span><h4>Result</h4></header>
+              <p>A worked example (a small single-storey domestic extension) gives about <strong>4.1 tonnes CO₂e</strong> across modules A1–A5. The concrete foundation and facing brick are the biggest contributors. A built-in comparison shows that switching the rebar from UK recycled to virgin steel increases its material carbon by about <strong>4.4×</strong>.</p>
+              <div class="stats">
+                <div class="stat"><b>≈4.1 t</b><span>CO₂e, worked example</span></div>
+                <div class="stat"><b>168 → 731 kg</b><span>rebar CO₂e, recycled vs virgin</span></div>
+              </div></div>
+          </div>
+
+          <div class="how">
+            <h4>How it works</h4>
+            <p>The model follows the life-cycle stages defined in BS EN 15978. Each row of the calculator is one building element (e.g. the strip footing), and it passes through these steps:</p>
+            <ol class="pipeline">
+              <li><div class="step"><small>Step 1</small><span>Quantity</span></div></li>
+              <li><div class="step"><small>Step 2</small><span>Mass + waste</span></div></li>
+              <li><div class="step"><small>Step 3 · A1–A3</small><span>Material carbon</span></div></li>
+              <li><div class="step"><small>Step 4 · A4</small><span>Transport</span></div></li>
+              <li><div class="step"><small>Step 5 · A5</small><span>Construction</span></div></li>
+              <li><div class="step"><small>Step 6</small><span>Total &amp; chart</span></div></li>
+            </ol>
+            <dl class="step-detail">
+              <div><dt>1. Quantity</dt><dd>Enter the element, pick a material from the dropdown, and type in the quantity from the take-off, in m³ or kg.</dd></div>
+              <div><dt>2. Mass + waste</dt><dd>Volumes are converted to mass using the material's density (<span class="formula">IF(unit="m3", qty×density, qty)</span>), then increased by a typical waste allowance (e.g. 5% for concrete, 10% for brick) to reflect over-ordering and offcuts.</dd></div>
+              <div><dt>3. Material carbon (A1–A3)</dt><dd>Mass × the ICE carbon factor (kgCO₂e per kg) covers "cradle to gate": extracting raw materials, transporting them to the factory and manufacturing the product.</dd></div>
+              <div><dt>4. Transport (A4)</dt><dd><span class="formula">tonnes × km × 0.105</span>: the carbon from lorries delivering materials to site, using an editable distance and an average UK HGV emission factor.</dd></div>
+              <div><dt>5. Construction (A5)</dt><dd>A default percentage (5%) of A1–A4 to cover site energy and plant. RICS whole-life carbon guidance allows this when detailed site data isn't available yet.</dd></div>
+              <div><dt>6. Total &amp; chart</dt><dd>Each row's A1–A5 figures are summed and converted to tonnes. The Summary tab charts carbon by element, so the biggest "hotspots" are obvious at a glance.</dd></div>
+            </dl>
+          </div>
+
+          <div class="limits"><strong>Honest limitations</strong>Carbon factors, waste allowances and the transport factor are representative values rather than live data. A real project would use supplier EPDs and actual delivery distances. The scope is A1–A5 only, so in-use and end-of-life stages are excluded, and the timber figure excludes biogenic carbon storage. The tool is still being refined.</div>
+        </div>
+      </article>
+
+      <!-- ---------- Project 2: QTO ---------- -->
+      <article class="project" id="qto">
+        <div class="project-top">
+          <span class="project-num">Project 02</span>
+          <h3>Quantity Take-off &amp; Cost Estimator</h3>
+          <p class="tagline">A browser tool that mirrors a construction estimator's workflow, from measured drawing dimensions to a priced Bill of Quantities and a tender-ready Excel pack.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">SheetJS (Excel export)</span><span class="tag">localStorage</span><span class="tag">GitHub Pages</span></div>
+          <div class="links">
+            <a class="btn btn-teal" href="https://ivorfergusson-tech.github.io/qto-cost-estimator/" target="_blank" rel="noopener">Open live demo</a>
+            <a class="btn btn-ghost" href="https://github.com/ivorfergusson-tech/qto-cost-estimator" target="_blank" rel="noopener">View source code</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="star">
+            <div class="star-block"><header><span class="star-letter">S</span><h4>Situation</h4></header>
+              <p>During my internship at Lambert Construction I supported the estimating team with quantity take-offs and cost-estimate reviews for upcoming tenders. I saw that pricing a job is a careful, step-by-step process, not a single guess.</p></div>
+            <div class="star-block"><header><span class="star-letter">T</span><h4>Task</h4></header>
+              <p>Build a tool that reproduces the four real estimating stages (measure → abstract → price → summarise) so I could properly understand and explain each one, and produce an output an estimator could actually check.</p></div>
+            <div class="star-block"><header><span class="star-letter">A</span><h4>Action</h4></header>
+              <p>Split the logic into small JavaScript modules, each with one job: <code>takeoff.js</code> squares dimensions, <code>boq.js</code> groups and prices items, <code>estimate.js</code> adds on-costs, and <code>xlsx-export.js</code> writes the Excel file.</p>
+              <p>Built a rate library with separate labour, material and plant rates, and a sample project ("Riverside Apartments, Block C") with 15 measured lines across groundworks, concrete, masonry, drainage and externals.</p></div>
+            <div class="star-block"><header><span class="star-letter">R</span><h4>Result</h4></header>
+              <p>A working, publicly hosted tool that takes measured dimensions and produces a priced BOQ and tender summary, then exports an Excel tender pack with <strong>live formulas</strong> on separate Takeoff, BOQ and Summary sheets, so every number can be checked the way you would check a colleague's estimate.</p></div>
+          </div>
+
+          <div class="how">
+            <h4>How it works</h4>
+            <p>The tool has one screen for each stage an estimator goes through:</p>
+            <ol class="pipeline">
+              <li><div class="step"><small>Step 1</small><span>Take-off</span></div></li>
+              <li><div class="step"><small>Step 2</small><span>Abstract to BOQ</span></div></li>
+              <li><div class="step"><small>Step 3</small><span>Rate build-up</span></div></li>
+              <li><div class="step"><small>Step 4</small><span>Tender summary</span></div></li>
+              <li><div class="step"><small>Step 5</small><span>Excel export</span></div></li>
+            </ol>
+            <dl class="step-detail">
+              <div><dt>1. Take-off</dt><dd>Enter what was measured from the drawing: location, description, dimensions and "timesing" (how many times it repeats). <strong>Squaring</strong> multiplies them into a quantity: <span class="formula">times × L × W × D</span>.</dd></div>
+              <div><dt>2. Abstract to BOQ</dt><dd>The same item is measured in many places (e.g. blockwork wall by wall). Abstracting groups every measurement of that item into one Bill of Quantities line, so you price "450 m² of blockwork" once.</dd></div>
+              <div><dt>3. Rate build-up</dt><dd>Each BOQ line gets a £/unit rate built from <span class="formula">labour + material + plant</span>. Quantity × rate = line cost. Showing the build-up means a price can be justified rather than guessed.</dd></div>
+              <div><dt>4. Tender summary</dt><dd>On top of the measured work the tool adds <strong>preliminaries</strong> (running the site), <strong>overheads &amp; profit</strong> and <strong>contingency</strong> (a risk buffer). Change a percentage and the tender sum updates instantly.</dd></div>
+              <div><dt>5. Excel export</dt><dd>SheetJS writes a real .xlsx with formulas in the cells, not just numbers, so the file behaves like an estimator's own spreadsheet and can be audited line by line.</dd></div>
+              <div><dt>Behind the scenes</dt><dd>With no server needed, project data is saved in the browser. The costing maths is kept separate from the screen code, so any number can be traced to the one file that calculated it.</dd></div>
+            </dl>
+          </div>
+
+          <div class="limits"><strong>Honest limitations</strong>It does not read CAD or PDF drawings automatically, and assumes the drawing has already been measured (commercial software like CostX or Bluebeam does that part). Unit rates are illustrative, not live BCIS or supplier prices, so the bill may not be commercially accurate. Prelims, OH&amp;P and contingency are applied as flat percentages.</div>
+        </div>
+      </article>
+
+      <!-- ---------- Project 3: Site Diary ---------- -->
+      <article class="project" id="diary">
+        <div class="project-top">
+          <span class="project-num">Project 03</span>
+          <h3>Site Diary &amp; Defect Log</h3>
+          <p class="tagline">A web app that turns simple form entries into the two documents every site runs on: a professional daily site report and a defect register, both downloadable as PDF.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">jsPDF</span><span class="tag">localStorage</span><span class="tag">GitHub Pages</span></div>
+          <div class="links">
+            <a class="btn btn-teal" href="https://ivorfergusson-tech.github.io/site-diary-defect-log/" target="_blank" rel="noopener">Open live demo</a>
+            <a class="btn btn-ghost" href="https://github.com/ivorfergusson-tech/site-diary-defect-log" target="_blank" rel="noopener">View source code</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="star">
+            <div class="star-block"><header><span class="star-letter">S</span><h4>Situation</h4></header>
+              <p>On site, the daily diary is the contractor's evidence of what happened each day (labour, plant, weather, deliveries, instructions and delays). It is used in delay claims and extension-of-time disputes. Missing or vague diaries cause real problems, and defects must be tracked all the way to close-out.</p></div>
+            <div class="star-block"><header><span class="star-letter">T</span><h4>Task</h4></header>
+              <p>Build a simple tool that captures both records with realistic fields, and automatically produces a properly formatted document from them, the same idea as site software like Procore or Fieldwire, but on a small scale.</p></div>
+            <div class="star-block"><header><span class="star-letter">A</span><h4>Action</h4></header>
+              <p>Built two forms: a <strong>Site Diary</strong> (labour, plant, weather, deliveries, instructions, delays, H&amp;S notes) and a <strong>Defect Log</strong> (location, severity, raised by, assigned to, and status from raised → assigned → closed).</p>
+              <p>Wrote a report module that renders the saved entries as a formatted daily report or defect register on screen, and a second renderer that draws the same content onto a PDF with jsPDF.</p></div>
+            <div class="star-block"><header><span class="star-letter">R</span><h4>Result</h4></header>
+              <p>A live, free-to-use app where typed-in entries become a professional daily report or defect register in one click, viewable on screen or downloadable as a PDF. It also gave me a real understanding of why site records matter commercially, not just administratively.</p></div>
+          </div>
+
+          <div class="how">
+            <h4>How it works</h4>
+            <p>Everything runs in the browser. Data flows through four stages:</p>
+            <ol class="pipeline">
+              <li><div class="step"><small>Step 1</small><span>Form → data</span></div></li>
+              <li><div class="step"><small>Step 2</small><span>Data → storage</span></div></li>
+              <li><div class="step"><small>Step 3</small><span>Storage → report</span></div></li>
+              <li><div class="step"><small>Step 4</small><span>Report → PDF</span></div></li>
+            </ol>
+            <dl class="step-detail">
+              <div><dt>1. Form → data</dt><dd>When you submit a diary or defect form, the browser's built-in <code>FormData</code> reads every field into a single data object.</dd></div>
+              <div><dt>2. Data → storage</dt><dd>That object gets an ID and timestamp and is saved as JSON in the browser's <code>localStorage</code>, so entries survive a page refresh.</dd></div>
+              <div><dt>3. Storage → report</dt><dd>The app re-reads everything saved and lays it out as a formatted daily report (for diaries) or a table register (for defects).</dd></div>
+              <div><dt>4. Report → PDF</dt><dd>jsPDF draws the same information onto a PDF page, placing text at x/y coordinates. That is how PDF generation genuinely works, because a PDF has no HTML inside it.</dd></div>
+            </dl>
+          </div>
+
+          <div class="limits"><strong>Honest limitations</strong>There is no backend, so data is saved only in the browser on that device and is not shared between users. A real version would need a database and logins. Photos are stored as embedded text, which wouldn't scale to a live site. Because all storage goes through one file, swapping in a real database would only mean changing that one file.</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BEYOND ======================= -->
+<section id="beyond">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Beyond the Classroom</h2>
+    </div>
+
+    <div class="beyond-grid">
+      <div>
+        <h3>Judo</h3>
+        <p class="sub">Black Belt · Training since April 2017 · Sheffield Judo Club</p>
+        <div class="judo-stats">
+          <div class="judo-stat"><b>Black Belt</b><span>1st Dan, awarded 2025</span></div>
+          <div class="judo-stat"><b>Champion</b><span>English Open, 2023</span></div>
+          <div class="judo-stat"><b>5th</b><span>British Championships, 2025</span></div>
+          <div class="judo-stat"><b>Ranked 2nd</b><span>U73kg Cadet, national rankings 2026</span></div>
+        </div>
+        <p>Judo has played a major role in my life. I have practised since I was 8 and now hold a black belt, competing at national level while balancing a demanding sport with my studies. Competing has taught me to perform under real pressure. Alongside the results above, I have also won silver at the Welsh Open.</p>
+        <p>Judo has taught me that things don't always go to plan. The only way to overcome that is determination and resilience, a mindset I bring to any long-term project. As Chairman of the club committee and a junior coach, I have learned to lead, organise and take responsibility for others, all skills I want to bring to a site engineering team where discipline, teamwork and composure under pressure are just as essential.</p>
+      </div>
+
+      <div>
+        <h3>Duke of Edinburgh <span class="badge">Silver · In progress</span></h3>
+        <p class="sub">Four sections building practical and personal skills.</p>
+        <div class="dofe">
+          <div class="card"><span class="label">Volunteering</span><h4>Sheffield Judo Club</h4><p>Ran training sessions for club members and maintained and cleaned the clubhouse facilities.</p></div>
+          <div class="card"><span class="label">Physical</span><h4>Powerlifting</h4><p>Goal to increase bench press by 30 kg through structured, consistent training over the award period.</p></div>
+          <div class="card"><span class="label">Skill</span><h4>Agentic AI Workflows</h4><p>Built practical skills with Claude Code, applying AI tools to automate tasks and solve problems.</p></div>
+          <div class="card"><span class="label">Expedition</span><h4>Dark Peak · 3 days</h4><p>Self-navigated expedition across the Peak District, planning the route, camping and managing logistics as a team.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Ivor Fergusson</b>
+    <span>
+      <a href="mailto:IvorFergusson@Gmail.com">IvorFergusson@Gmail.com</a> &nbsp;·&nbsp;
+      <a href="tel:+447485283852">07485 283852</a> &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/ivor-f-24026a39a" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Highlight the nav link for the section currently in view
+  (function () {
+    var bar = document.querySelector('nav .wrap');
+    var links = bar.querySelectorAll('a');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    if (!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (!a) return;
+        a.classList.add('active');
+        // keep the active link visible in the horizontally scrolling nav on phones
+        var left = a.offsetLeft - bar.offsetLeft;
+        if (left < bar.scrollLeft || left + a.offsetWidth > bar.scrollLeft + bar.clientWidth) {
+          bar.scrollLeft = left - 16;
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) obs.observe(s);
+    });
+  })();
+</script>
 </body>
 </html>
