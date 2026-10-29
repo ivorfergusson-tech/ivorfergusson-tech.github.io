@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ivorfergusson-tech.github.io/compound/sitemap.xml
